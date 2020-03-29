@@ -1,0 +1,22 @@
+<label> Server Name
+    <!--<input 
+        type="text"
+        class="form-control"
+        (input)="onUpdateServerName($event)">--> <!-- this event binding is one way binding we take value from use and update ts var-->
+    <input 
+        type="text"
+        class="form-control"
+        [(ngModel)]="serverName"> <!-- this bidrectional binding is way of binding from html to ts and from ts to html-->
+    </label>
+<!--<p>{{ serverName }} </p>-->
+<button class="btn btn-primary" 
+    [disabled]="! allowNewServer"
+    (click)="onCreateServer()">
+    Add Server
+</button>
+<!--<p> {{ allowNewServer }} </p>--> <!-- this is string interpolation -->
+<!--<p [innerText]="allowNewServer"></p>--> <!-- this is called property binding -->
+<!--<p>{{ serverCreationStatus }} </p>-->
+<p *ngIf="serverCreated">Server is created ! Name is {{ serverName }}</p>
+<app-server></app-server>
+<app-server></app-server>
